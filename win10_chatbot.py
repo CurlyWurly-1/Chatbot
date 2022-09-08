@@ -1,11 +1,28 @@
 # Python program to translate
 # speech to text and text to speech
  
- 
 import speech_recognition as sr
 import pyttsx3
 import os
 import openai
+
+botName      = "Sally"
+myName       = "Nick"
+myAge        = "102"
+myBirthDate  = "1st April 1901" 
+myBirthPlace = "The Moon"
+
+
+def InfoTextSet (botName, myName, myAge, myBirthDate, myBirthPlace):
+    infoText = ""
+    infoText = botName + " is a chatbot that cheerfully answers questions\n"
+    infoText + infoText + "You:What is your name?\n" +botName +":My name is " + botName + "\n" 
+    infoText = infoText + "You:What is my name?\n" + botName +":Your name is " + myName + "\n" 
+    infoText = infoText + "You:How old am I?\n" + botName +":You are " + myAge + " years old\n" 
+    infoText = infoText + "You:When was I born?\n" + botName + ":You were born on " + myBirthDate +"\n" 
+    infoText = infoText + "You:Where was I born?\n" + botName +":You were born in "+ myBirthPlace + "\n" 
+    return infoText 
+
 
 def GPT_Completion(texts):
 ## Call the API key under your account (in a secure way)
@@ -13,30 +30,37 @@ def GPT_Completion(texts):
     response = openai.Completion.create(
     engine="text-davinci-002",
     prompt =  texts,
-    temperature = 0.6,
+    temperature = 0.9,
     top_p = 1,
     max_tokens = 64,
     frequency_penalty = 0,
-    presence_penalty = 0 )
+    presence_penalty = 0)
 #    return print(response.choices[0].text)
     return response.choices[0].text
- 
-# Initialize the recognizer
-r = sr.Recognizer()
- 
-# Function to convert text to
-# speech
+
+
+# Function to convert text to speech
 def SpeakText(command):
-     
-    # Initialize the engine
     engine = pyttsx3.init()
     engine.say(command)
     engine.runAndWait()
+
+
+# Print mic list (use this find the device number)
+# mic_list = sr.Microphone.list_microphone_names()
+# print(mic_list)
+
+
+# Initialize the recognizer
+r = sr.Recognizer()
+with sr.Microphone() as source:
+    print("Please be quiet - Adjusting for background noise")
+# listens for the user's input
+    r.adjust_for_ambient_noise(source)
      
-     
+
 # Loop infinitely for user to
 # speak
- 
 while(1):   
      
     # Exception handling to handle
@@ -44,26 +68,50 @@ while(1):
     try:
          
         # use the microphone as source for input.
-        with sr.Microphone() as source2:
+        with sr.Microphone() as source:
              
             # wait for a second to let the recognizer
             # adjust the energy threshold based on
             # the surrounding noise level
-            r.adjust_for_ambient_noise(source2, duration=0.2)
-             
-            #listens for the user's input
-            audio2 = r.listen(source2)
-             
-            # Using google to recognize audio
-            MyText = r.recognize_google(audio2)
-            MyText = MyText.lower()
- 
-#            print("Did you say "+MyText)
-            print("Q: "+MyText)            
-            GptText = GPT_Completion(MyText)
-            print(GptText)   
-            SpeakText(GptText)
-             
+            # r.adjust_for_ambient_noise(source, duration=0.2)
+            r.adjust_for_ambient_noise(source)             
+            # listens for the user's input
+            print("Listening")
+            audio = r.listen(source, None, 15)
+            print("Processing")             
+
+        try:    
+            myText = r.recognize_google(audio, language = 'en-UK')    
+            print("Q: "+myText)            
+            myText = InfoTextSet(botName, myName, myAge, myBirthDate, myBirthPlace) + myText
+            gptText = GPT_Completion(myText)
+            print(gptText)   
+            if ('?' in gptText) :
+                zexit = False
+                while zexit == False :
+                    if (gptText[0] == '?') :
+                        zexit = True
+                    gptText = gptText[1:]
+                zexit = False
+            if ('You:' in gptText) :
+                while zexit == False :
+                    if (gptText[0] == ':') :
+                        zexit = True
+                    gptText = gptText[1:]
+            if (':' in gptText) :
+                while zexit == False :
+                    if (gptText[0] == ':') :
+                        zexit = True
+                    gptText = gptText[1:]
+
+            SpeakText(gptText)
+
+        except sr.UnknownValueError:    
+            print("Google Speech Recognition could not understand audio")
+        except sr.RequestError as e:   
+            print("Could not request results from Google Speech Recognition service; {0}".format(e))
+
+         
     except sr.RequestError as e:
         print("Could not request results; {0}".format(e))
          
