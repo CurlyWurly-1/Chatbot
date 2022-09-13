@@ -25,7 +25,13 @@ To get this working with GPT-3, you will need to modify the code to enter your G
 
 
 USAGE - Brief info on how it works
- - The concept is this - Whatever you say at the "listening" prompt will be translated into text by the speech recognition part of the program. This text is then input into GPT-3 via the GTP-3 API which then passes back a semantically relevant response text sentence. This response text sentence is passed to the speech part of the program so that the response text can be spoken back to you. After the spoken part has finished, the program retunrs to the "listening" prompt, so you can say something else.
+ - The concept is this 
+   - The python program pauses at the "listening" prompt and its waiting for someone to speak.
+   - If someone speaks, the python program records the audio and waits until speaking has finished. Thereafter, whatever is said, is translated it into text. N.B. The speech recognition part of the python program detects the end of a sentence because it looks for period of silence. 
+   - The python program now passes the text into the GPT-3 cloud system using the GPT-3 API.
+   - The GPT-3 cloud system processes the text and using its own AI proceses, it constructs a semantically relevant response text sentence.
+   - The GPT-3 cloud system now passes the response text sentence back to the python program using the response part of the GPT-3 API. 
+   - In the python program, This response text sentence is now passed to the speech part of the program so that the response text can be spoken back to you. After the spoken part has finished, the program retunrs to the "listening" prompt, so you can say something else.
  - To get this working, try executing it first with a headset. If the headset is working OK, then the program should automatically pick up which device to use (Nano can be tricky here).
  - Only speak after you see "listening". The program automatically detects when you have finished speaking and if all OK, you should then see "processing". The spoken output will then be issued and after it has finished, you will see "listening" again
  - Try asking "Who are you". The reply should say "Buddy" but be aware that if your device performance is poor, you may have to wait quite a few seconds for the speech recognition part to complete. If you don't get anything spoken back after 20 seconds, something is wrong - Check the device connections 
