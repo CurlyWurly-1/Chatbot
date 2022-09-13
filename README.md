@@ -8,3 +8,4 @@ There are 2 main programs:
    - pip3 install pyttsx3
    - pip3 install openai
    - pip3 install speechRecognition
+   - pip3 install PyAudio
