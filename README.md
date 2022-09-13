@@ -2,8 +2,9 @@
 Speech recognition feeding GPT-3, with the response being spoken back.
 
 
-GENERAL INFO
+GENERAL INFO - How to install on your laptop/desktop
 
+ - You need to have Python3 installed (e.g. 3.10) , a useful IDE (e.g. VsCode) and some basic programming knowledge
  - There are 2 main python programs:
    - The "WIN10" version called "WIN10_chatbot.py" is self contained i.e. it doesn't call "speak.py".
    - The "Jetson Nano" version called "jetson_nano_chatbot.py" uses a separate program called "speak.py" for speech output
@@ -14,7 +15,7 @@ GENERAL INFO
    - pip3 install PyAudio
  - Be aware that the speech recognition part runs in your desktop/laptop, so the speed of speech recognition relies on how fast the CPU is. 
 
-GPT3 INFO
+GPT3 INFO - How to get an API key
 
 To get this working with GPT-3, you will need to modify the code to enter your GPT-3 API Key (In the WIN10 Python program, look at about line 30). You can get an API key as follows:
  - In a browser go to https://openai.com/api/ and create your own account
@@ -23,8 +24,8 @@ To get this working with GPT-3, you will need to modify the code to enter your G
    - openai.api_key = "zz-xxxxxxxxxxyyyyyyyyyyzzzzzzzzzzaaaaaaaaaabbbbbbbb"
 
 
-USAGE
- - The concept of is this - Whatever you say at the "listening" prompt will be translated into text by the speech recogntiion part of the program. This text is then fed to GPT-3 and if GPT-3 understands it correctly, it will return another text sentence which should be semantically relevant. This new text is then spoken back to you.
+USAGE - Brief info on how it works
+ - The concept of is this - Whatever you say at the "listening" prompt will be translated into text by the speech recogntiion part of the program. This text is then fed to GPT-3 which should return another text sentence which should be semantically relevant. This new text is then spoken back to you.
  - To get this working, try executing it first with a headset. If the headset is working OK, then the program should automatically pick up which device to use (Nano can be tricky here).
  - Only speak after you see "listening". The program automatically detects when you have finished speaking and if all OK, you should then see "processing". The spoken output will then be issued and after it has finished, you will see "listening" again
  - Try asking "Who are you". The reply should say "Buddy" but be aware that if your device performance is poor, you may have to wait quite a few seconds for the speech recognition part to complete. If you don't get anything spoken back after 20 seconds, something is wrong - Check the device connections 
@@ -33,3 +34,5 @@ USAGE
    - What is my name? 
    - How old am I?
    - When is my birthday?  
+ - If you extended the "prompt" info to include where you live now, you could ask what are the best restaurents near where I live 
+
