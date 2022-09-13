@@ -27,7 +27,7 @@ To get this working with GPT-3, you will need to modify the code to enter your G
 USAGE - Brief info on how it works
  - The concept is this 
    - The python program pauses at the "listening" prompt and now starts listening for sounds.
-   - If someone speaks, the python program attempts to translate whatever is spoken into text. N.B. The speech recognition part of the python program detects the end of a sentence because it looks for period of silence. 
+   - If someone speaks, the python program attempts to translate whatever is spoken into text when the speaker has finished speaking. N.B. The speech recognition part of the python program detects the end of a sentence because it looks for period of silence. 
    - The python program now inputs the text into the GPT-3 cloud system via the GPT-3 API.
    - The GPT-3 cloud system processes the input text using its own AI proceses, and tries to construct a semantically relevant response text sentence.
    - The GPT-3 cloud system now passes this response text sentence back to the python program via the GPT-3 API. 
