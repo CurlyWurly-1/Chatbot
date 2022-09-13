@@ -92,17 +92,20 @@ while(1):
                     if (gptText[0] == '?') :
                         zexit = True
                     gptText = gptText[1:]
-                zexit = False
             if ('You:' in gptText) :
+                zexit = False
                 while zexit == False :
                     if (gptText[0] == ':') :
                         zexit = True
                     gptText = gptText[1:]
             if (':' in gptText) :
+                zexit = False
                 while zexit == False :
                     if (gptText[0] == ':') :
                         zexit = True
                     gptText = gptText[1:]
+            if ('http' in gptText) :
+                gptText = "Please refine your question"
 
             SpeakText(gptText)
 
