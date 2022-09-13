@@ -12,8 +12,19 @@ There are 2 main programs:
 
 GPT3 INFO
 
-To get this working with GPT-3, you will need to add an access key (In the WIN10 Python program, look at about line 30 for where you need to add this key - it is the line starting  "openai.api_key = <...>". You can get an API key as follows:
- - In a browser go to https://openai.com/api/ and create an account
+To get this working with GPT-3, you will need to modify the code to enter your GPT-3 API Key (In the WIN10 Python program, look at about line 30). You can get an API key as follows:
+ - In a browser go to https://openai.com/api/ and create your own account
  - When you are logged in, click top right on the "Personal" icon and select "View API keys". In the next screen, press "Create new secret key" and copy the key that gets created. The format of the key will be something like "zz-xxxxxxxxxxyyyyyyyyyyzzzzzzzzzzaaaaaaaaaabbbbbbbb" 
- - Copy this key into line 30 so that it looks something like this. Use your own generated API key because this mocked up one will not work! 
+ - Copy this key into the python program (about line 30) so that it looks something like this. N.B. This mocked up value will not work - you must create your own! 
    - openai.api_key = "zz-xxxxxxxxxxyyyyyyyyyyzzzzzzzzzzaaaaaaaaaabbbbbbbb"
+
+
+USAGE
+ - To get this working, try it with a headset. If the headset is working OK, then the program should automatically pick up which device to use.
+ - Execute the program and when you see "listening", wait a bit and then say "Who are you" into your headset microphone. The reply should say "Buddy" but be aware that if your device performance is poor, you may have to wait quite a few seconds for the speech recognition part to complete. 
+ - Whatever you say shoudl be translated into text by the speech recogntiion part. The text is then fed to GPT-3 and if GPT-3 understands it correctly, it will return another text sentence back which will be spoken out to you.
+ - Try the following and hear what you get back - Check the python code to see how these responses were programmed 
+   - what is your name
+   - what is my name 
+   - How old am I
+   - When is my birthday  
