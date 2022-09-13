@@ -12,7 +12,7 @@ GENERAL INFO
    - pip3 install openai
    - pip3 install speechRecognition
    - pip3 install PyAudio
- - Be aware that the speech recognition part runs on youe desktop/laptop, so the speed of speech recogntion relies on how fast your device is. 
+ - Be aware that the speech recognition part runs in your desktop/laptop, so the speed of speech recognition relies on how fast the CPU is. 
 
 GPT3 INFO
 
