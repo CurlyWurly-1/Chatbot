@@ -6,11 +6,11 @@ import pyttsx3
 import os
 import openai
 
-botName      = "Sally"
-myName       = "Nick"
-myAge        = "102"
-myBirthDate  = "1st April 1901" 
-myBirthPlace = "The Moon"
+botName      = "Buddy"
+myName       = "Dracula"
+myAge        = "202"
+myBirthDate  = "1st April 1801" 
+myBirthPlace = "The dark side of the Moon"
 
 
 def InfoTextSet (botName, myName, myAge, myBirthDate, myBirthPlace):
