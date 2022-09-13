@@ -20,11 +20,12 @@ To get this working with GPT-3, you will need to modify the code to enter your G
 
 
 USAGE
+ - The concept of this python program is this - Whatever you say (at the "listening" prompt) will be translated into text by the speech recogntiion part of the program. This text is then fed to GPT-3 and if GPT-3 understands it correctly, it will return another text sentence which should be relevant and this will be spoken back out to you.
  - To get this working, try it with a headset. If the headset is working OK, then the program should automatically pick up which device to use.
  - Execute the program and when you see "listening", wait a bit and then say "Who are you" into your headset microphone. The reply should say "Buddy" but be aware that if your device performance is poor, you may have to wait quite a few seconds for the speech recognition part to complete. 
- - Whatever you say shoudl be translated into text by the speech recogntiion part. The text is then fed to GPT-3 and if GPT-3 understands it correctly, it will return another text sentence back which will be spoken out to you.
- - Try the following and hear what you get back - Check the python code to see how these responses were programmed 
-   - what is your name
-   - what is my name 
-   - How old am I
-   - When is my birthday  
+
+ - Try saying the following and hear what you get back - Check the python code to see how these responses were programmed 
+   - What is your name?
+   - What is my name? 
+   - How old am I?
+   - When is my birthday?  
