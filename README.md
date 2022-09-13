@@ -1,17 +1,18 @@
 # Chatbot
 Speech recognition feeding GPT-3, with the response being spoken back.
 
- - These programs were written for python3. 
- - To use them, you will have to install some modules. 
- - Be aware that the speech recognition part runs on youe desktop/laptop, so the speed of speech recogntion relies on how fast your device is. 
- - There are 2 main programs:
-   - The WIN10 version called "WIN10_chatbot.py" is self contained i.e. it doesn't call "speak.py". To use this in WIN10, use the latest python3 version (e.g. 3.10) and execute the following in a "CMD Prompt" window (Run as Administrator)
-     - pip3 install pyttsx3
-     - pip3 install openai
-     - pip3 install speechRecognition
-     - pip3 install PyAudio
-   - The Jetson Nano version called "jetson_nano_chatbot.py" uses "speak.py" for speech output
 
+GENERAL INFO
+
+ - There are 2 main python programs:
+   - The "WIN10" version called "WIN10_chatbot.py" is self contained i.e. it doesn't call "speak.py".
+   - The "Jetson Nano" version called "jetson_nano_chatbot.py" uses a separate program called "speak.py" for speech output
+ - To use theses programs, you will have to install the following modules (works on python3.10). In WIN10, execute the following in an elevated  "CMD Prompt" window (Run as Administrator). If executing in Jetson Nano, add SUDO before the commands 
+   - pip3 install pyttsx3
+   - pip3 install openai
+   - pip3 install speechRecognition
+   - pip3 install PyAudio
+ - Be aware that the speech recognition part runs on youe desktop/laptop, so the speed of speech recogntion relies on how fast your device is. 
 
 GPT3 INFO
 
@@ -23,10 +24,10 @@ To get this working with GPT-3, you will need to modify the code to enter your G
 
 
 USAGE
- - The concept of this python program is this - Whatever you say (at the "listening" prompt) will be translated into text by the speech recogntiion part of the program. This text is then fed to GPT-3 and if GPT-3 understands it correctly, it will return another text sentence which should be relevant and this will be spoken back out to you.
- - To get this working, try it with a headset. If the headset is working OK, then the program should automatically pick up which device to use.
- - Execute the program and when you see "listening", wait a bit and then say "Who are you" into your headset microphone. The reply should say "Buddy" but be aware that if your device performance is poor, you may have to wait quite a few seconds for the speech recognition part to complete. 
-
+ - The concept of is this - Whatever you say at the "listening" prompt will be translated into text by the speech recogntiion part of the program. This text is then fed to GPT-3 and if GPT-3 understands it correctly, it will return another text sentence which should be semantically relevant. This new text is then spoken back to you.
+ - To get this working, try executing it first with a headset. If the headset is working OK, then the program should automatically pick up which device to use (Nano can be tricky here).
+ - Only speak after you see "listening". The program automatically detects when you have finished speaking and if all OK, you should then see "processing". The spoken output will then be issued and after it has finished, you will see "listening" again
+ - Try asking "Who are you". The reply should say "Buddy" but be aware that if your device performance is poor, you may have to wait quite a few seconds for the speech recognition part to complete. If you don't get anything spoken back after 20 seconds, something is wrong - Check the device connections 
  - Try saying the following and hear what you get back - Check the python code to see how these responses were programmed 
    - What is your name?
    - What is my name? 
