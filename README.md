@@ -26,12 +26,12 @@ To get this working with GPT-3, you will need to modify the code to enter your G
 
 USAGE - Brief info on how it works
  - The concept is this 
-   - The python program pauses at the "listening" prompt and now starts listening for sounds.
-   - If someone speaks, the python program attempts to translate whatever is spoken into text when the speaker has finished speaking. N.B. The speech recognition part of the python program detects the end of a sentence because it looks for period of silence. 
-   - The python program now inputs the text into the GPT-3 cloud system via the GPT-3 API.
-   - The GPT-3 cloud system processes the input text using its own AI proceses, and tries to construct a semantically relevant response text sentence.
+   - After the python program has initialised, The program pauses at the "listening" prompt. The program is now waiting for sounds to exceed a set background noise level. 
+   - When someone speaks, the sound level will exceed the background noise level and so this triggers the python program to record the audio from now on until a period of silence has been exceeded. The period of silence indicates that speaking has finished and so this then kicks off the next process, where the python program now tries to translate the words it has just heard into text form, which is stored in a text variable. 
+   - The python program now passes the text sentence (the contents of the text variable) into the GPT-3 cloud system via the GPT-3 API.
+   - The GPT-3 cloud system processes the input text sentence using its own AI processes, and tries to construct a semantically relevant text sentence as a response.
    - The GPT-3 cloud system now passes this response text sentence back to the python program via the GPT-3 API. 
-   - In the python program, This response text sentence is now passed to the speech part of the program so that the response text can be spoken back to you. After the spoken part has finished, the program returns to the "listening" prompt, so you can say something else.
+   - In the python program, This response text sentence is now passed to the speech part of the program so that it can be spoken back to you. After the spoken part has finished, the python program then returns back to the start i.e. the "listening" prompt will be re-displayed, so you can say something else.
  - To get this working, try executing it first with a headset. If the headset is working OK, then the program should automatically pick up which device to use (Nano can be tricky here).
  - Only speak after you see "listening". The program automatically detects when you have finished speaking and if all OK, you should then see "processing". The spoken output will then be issued and after it has finished, you will see "listening" again
  - Try asking "Who are you". The reply should say "Buddy" but be aware that if your device performance is poor, you may have to wait quite a few seconds for the speech recognition part to complete. If you don't get anything spoken back after 20 seconds, something is wrong - Check the device connections 
