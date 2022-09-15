@@ -27,7 +27,7 @@ To get this working with GPT-3, you will need to modify the code to enter your G
 USAGE - Brief info on how it works
  - The concept is this 
    - After the python program has finished initialising itself, it will speak its introduction and thereafter, pause at the "listening" prompt. The program is now waiting for sounds to exceed a set background noise level. 
-   - When someone speaks, the sound level will exceed the background noise level and so this triggers the python program to record the audio from now on until a period of silence has been exceeded. The period of silence is the indicator that speaking has finished, and this kicks off the next part of the process where the python program stops listening, and now tries to identify the sounds as words and translates them as text in a "text" variable. 
+   - When someone speaks, the sound level will exceed the background noise level and this triggers the python program to record the audio from until a period of silence has been exceeded. This period of silence is the indicator that speaking has finished, and this kicks off the next part of the process where the python program  now tries to identify the sounds as a series of words and then translates them as text in a "text" variable. 
    - The python program now passes the "text" variable (which contains the identified words separated by a space) via the GPT-3 API into the GPT-3 cloud system.
    - The GPT-3 cloud system processes this input text sentence using its own AI processes, and tries to construct a semantically relevant text sentence to use as as a response.
    - The GPT-3 cloud system now passes this response text sentence back to the python program via the GPT-3 API. 
