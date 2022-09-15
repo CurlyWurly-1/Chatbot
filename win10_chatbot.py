@@ -11,7 +11,7 @@ myName       = "Dracula"
 myAge        = "202"
 myBirthDate  = "1st April 1801" 
 myBirthPlace = "The dark side of the Moon"
-
+myLocation   = "London"
 
 def InfoTextSet (botName, myName, myAge, myBirthDate, myBirthPlace):
     infoText = ""
@@ -21,6 +21,9 @@ def InfoTextSet (botName, myName, myAge, myBirthDate, myBirthPlace):
     infoText = infoText + "You:How old am I?\n" + botName +":You are " + myAge + " years old\n" 
     infoText = infoText + "You:When was I born?\n" + botName + ":You were born on " + myBirthDate +"\n" 
     infoText = infoText + "You:Where was I born?\n" + botName +":You were born in "+ myBirthPlace + "\n" 
+    infoText = infoText + "You:Where am I now?\n" + botName +":You are in "+ myLocation + "\n" 
+    infoText = infoText + "You:What is my location?\n" + botName +"Your location is "+ myLocation + "\n" 
+    infoText = infoText + "You:Where do I live?\n" + botName +"You live in "+ myLocation + "\n" 
     return infoText 
 
 
@@ -87,12 +90,17 @@ while(1):
             myText = InfoTextSet(botName, myName, myAge, myBirthDate, myBirthPlace) + myText
             gptText = GPT_Completion(myText)
             print(gptText)   
+            if (gptText[0] == '?') :
+                gptText = gptText[1:]
             if ('?' in gptText) :
+                temp = gptText
                 zexit = False
                 while zexit == False :
-                    if (gptText[0] == '?') :
+                    if (temp[0] == '?') :
                         zexit = True
-                    gptText = gptText[1:]
+                    temp = temp[1:]
+                if temp != "":
+                    gptText = temp
             if ('You:' in gptText) :
                 zexit = False
                 while zexit == False :
