@@ -1,11 +1,9 @@
 # Python program to translate
 # speech to text and text to speech
- 
 import speech_recognition as sr
 import pyttsx3
 import os
 import openai
-
 botName      = "Buddy"
 myName       = "Dracula"
 myAge        = "202"
@@ -22,8 +20,8 @@ def InfoTextSet (botName, myName, myAge, myBirthDate, myBirthPlace):
     infoText = infoText + "You:When was I born?\n" + botName + ":You were born on " + myBirthDate +"\n" 
     infoText = infoText + "You:Where was I born?\n" + botName +":You were born in "+ myBirthPlace + "\n" 
     infoText = infoText + "You:Where am I now?\n" + botName +":You are in "+ myLocation + "\n" 
-    infoText = infoText + "You:What is my location?\n" + botName +"Your location is "+ myLocation + "\n" 
-    infoText = infoText + "You:Where do I live?\n" + botName +"You live in "+ myLocation + "\n" 
+    infoText = infoText + "You:What is my location now?\n" + botName +"Your location is "+ myLocation + "\n" 
+    infoText = infoText + "You:Where do I live now?\n" + botName +"You live in "+ myLocation + "\n" 
     return infoText 
 
 
