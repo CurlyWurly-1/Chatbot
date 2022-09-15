@@ -44,7 +44,6 @@ def GPT_Completion(texts):
 
 # Function to convert text to speech
 def SpeakText(command):
-    engine = pyttsx3.init()
     engine.say(command)
     engine.runAndWait()
 
@@ -54,8 +53,12 @@ def SpeakText(command):
 # print(mic_list)
 
 
-# Initialize the recognizer
+# Initialize the speech speaking engine
+engine = pyttsx3.init()
+
+# Initialize the speech recognition engine
 r = sr.Recognizer()
+
 with sr.Microphone() as source:
     print("Please be quiet - Adjusting for background noise")
 # listens for the user's input
