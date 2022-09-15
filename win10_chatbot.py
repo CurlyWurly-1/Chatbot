@@ -91,33 +91,34 @@ while(1):
             myText = InfoTextSet(botName, myName, myAge, myBirthDate, myBirthPlace) + myText
             gptText = GPT_Completion(myText)
             print(gptText)   
-            if (gptText[0] == '?') :
-                gptText = gptText[1:]
-            if ('?' in gptText) :
-                temp = gptText
-                zexit = False
-                while zexit == False :
-                    if (temp[0] == '?') :
-                        zexit = True
-                    temp = temp[1:]
-                if temp != "":
-                    gptText = temp
-            if ('You:' in gptText) :
-                zexit = False
-                while zexit == False :
-                    if (gptText[0] == ':') :
-                        zexit = True
+            try:
+                if (gptText[0] == '?') :
                     gptText = gptText[1:]
-            tempText = botName + ":"
-            if (tempText in gptText) :
-                zexit = False
-                while zexit == False :
-                    if (gptText[0] == ':') :
-                        zexit = True
-                    gptText = gptText[1:]
-            if ('http' in gptText) :
-                gptText = "Please refine your question"
-
+                if ('?' in gptText) :
+                    temp = gptText
+                    zexit = False
+                    while zexit == False :
+                        if (temp[0] == '?') :
+                            zexit = True
+                        temp = temp[1:]
+                    if temp != "":
+                        gptText = temp
+                if ('You:' in gptText) :
+                    zexit = False
+                    while zexit == False :
+                        if (gptText[0] == ':') :
+                            zexit = True
+                        gptText = gptText[1:]
+                if (':' in gptText) :
+                    zexit = False
+                    while zexit == False :
+                        if (gptText[0] == ':') :
+                            zexit = True
+                        gptText = gptText[1:]
+                if ('http' in gptText) :
+                    gptText = "Please refine your question"
+            except:
+                print("error - index out of range")    
             SpeakText(gptText)
 
         except sr.UnknownValueError:    
