@@ -8,8 +8,8 @@ botName      = "Buddy"
 myName       = "Dracula"
 myAge        = "202"
 myBirthDate  = "1st April 1801" 
-myBirthPlace = "The dark side of the Moon"
-myLocation   = "London"
+myBirthPlace = "London"
+myLocation   = "Chester"
 
 def InfoTextSet (botName, myName, myAge, myBirthDate, myBirthPlace):
     infoText = ""
