@@ -57,7 +57,8 @@ with sr.Microphone() as source:
     print("Please be quiet - Adjusting for background noise")
 # listens for the user's input
     r.adjust_for_ambient_noise(source)
-     
+    print("Speaking my introduction")   
+    SpeakText("Hi " + myName + ", I am " + botName + ", Please talk to me or ask a question whenever you see the listening prompt" )      
 
 # Loop infinitely for user to
 # speak
