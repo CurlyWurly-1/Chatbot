@@ -118,7 +118,9 @@ while(1):
                 if ('http' in gptText) :
                     gptText = "Please refine your question"
             except:
-                print("error - index out of range")    
+                if gptText != "" 
+                    print("error - index out of range")    
+            
             SpeakText(gptText)
 
         except sr.UnknownValueError:    
