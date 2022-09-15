@@ -27,7 +27,7 @@ To get this working with GPT-3, you will need to modify the code to enter your G
 USAGE - Brief info on how it works
  - The concept is this 
    - After the python program has finished initialising itself, it will speak its introduction and thereafter, pause at the "listening" prompt. The program is now waiting for sounds to exceed a set background noise level. 
-   - When someone speaks, the sound level will exceed the background noise level and so this triggers the python program to record the audio from now on until a period of silence has been exceeded. The period of silence is the indicator that speaking has finished, and so this then kicks off the next part of the process, where the python program now tries to translate the words it has just heard into text form, which is stored in a text variable. 
+   - When someone speaks, the sound level will exceed the background noise level and so this triggers the python program to record the audio from now on until a period of silence has been exceeded. The period of silence is the indicator that speaking has finished, and this kicks off the next part of the process where the python program stops listening, and now tries to translate the words it has just heard into text form, which is stored in a text variable. 
    - The python program now passes the text sentence (the contents of the text variable) into the GPT-3 cloud system via the GPT-3 API.
    - The GPT-3 cloud system processes the input text sentence using its own AI processes, and tries to construct a semantically relevant text sentence as a response.
    - The GPT-3 cloud system now passes this response text sentence back to the python program via the GPT-3 API. 
@@ -41,4 +41,3 @@ USAGE - Brief info on how it works
    - How old am I?
    - When is my birthday?  
  - If you extended the "prompt" info to include where you live now, you could ask what are the best restaurents near where I live 
-
