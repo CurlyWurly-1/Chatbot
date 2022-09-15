@@ -42,4 +42,4 @@ USAGE - Brief info on how it works
    - What is my name? 
    - How old am I?
    - When is my birthday?  
- - If you extended the "prompt" info to include where you live now, you could ask what are the best restaurents near where I live 
+ - If you adapt the "prompt" info to include where you actually live, Ask  "What is the nearest pub called and what is its telephone number" and you may be suprised that it works as well as it does! 
