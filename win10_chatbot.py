@@ -110,7 +110,8 @@ while(1):
                     if (gptText[0] == ':') :
                         zexit = True
                     gptText = gptText[1:]
-            if (':' in gptText) :
+            tempText = botName + ":"
+            if (tempText in gptText) :
                 zexit = False
                 while zexit == False :
                     if (gptText[0] == ':') :
