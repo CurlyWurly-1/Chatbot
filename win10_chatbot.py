@@ -11,7 +11,7 @@ myBirthDate  = "1st April 1801"
 myBirthPlace = "London"
 myLocation   = "Chester"
 
-def InfoTextSet (botName, myName, myAge, myBirthDate, myBirthPlace):
+def InfoTextSet (botName, myName, myAge, myBirthDate, myBirthPlace, myLocation):
     infoText = ""
     infoText = botName + " is a chatbot that cheerfully answers questions\n"
     infoText + infoText + "You:What is your name?\n" +botName +":My name is " + botName + "\n" 
@@ -88,7 +88,7 @@ while(1):
         try:    
             myText = r.recognize_google(audio, language = 'en-UK')    
             print("Q: "+myText)            
-            myText = InfoTextSet(botName, myName, myAge, myBirthDate, myBirthPlace) + myText
+            myText = InfoTextSet(botName, myName, myAge, myBirthDate, myBirthPlace, myLocation) + myText
             gptText = GPT_Completion(myText)
             print(gptText)   
             try:
@@ -118,7 +118,7 @@ while(1):
                 if ('http' in gptText) :
                     gptText = "Please refine your question"
             except:
-                if gptText != "" 
+                if gptText != "": 
                     print("error - index out of range")    
             
             SpeakText(gptText)
