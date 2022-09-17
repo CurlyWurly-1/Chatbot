@@ -13,7 +13,7 @@ GENERAL INFO - How to install on your laptop/desktop
    - pip3 install openai
    - pip3 install speechRecognition
    - pip3 install PyAudio
- - The speech recognition part is using the "recognise_google" method. For more information on alternatives, refer to https://pypi.org/project/SpeechRecognition/. 
+ - The speech recognition part is using the "recognize_google" method. For more information on alternatives, refer to https://pypi.org/project/SpeechRecognition/. 
  - The chatbot engine is GPT-3. For more information, refer to https://openai.com/blog/openai-api/ 
  - The speech output part works without an internet connection. For more information, refer to https://pypi.org/project/pyttsx3/ 
 
