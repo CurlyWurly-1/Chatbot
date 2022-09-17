@@ -13,7 +13,7 @@ GENERAL INFO - How to install on your laptop/desktop
    - pip3 install openai
    - pip3 install speechRecognition
    - pip3 install PyAudio
- - Be aware that the speech recognition part runs in your desktop/laptop, so the speed of speech recognition relies on how fast the CPU is. 
+ - Be aware that the speech recognition part is using the "recognise_google" option. For more information, refer to "https://pypi.org/project/SpeechRecognition/". 
 
 GPT3 INFO - How to get an API key
 
