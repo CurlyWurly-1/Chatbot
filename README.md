@@ -1,5 +1,5 @@
 # Chatbot
-Speech recognition feeding GPT-3, with the response being spoken back.
+Use microphone to speak and the GPT-3 response is spoken back through the speakers.
 
 
 GENERAL INFO - How to install on your laptop/desktop
