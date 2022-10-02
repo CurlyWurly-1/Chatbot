@@ -1,5 +1,5 @@
 # Chatbot
-Use microphone to speak and the GPT-3 response is spoken back through the speakers.
+Use a microphone to speak to GPT-3 and hear its reply through the speakers.
 
 
 GENERAL INFO - How to install on your laptop/desktop
