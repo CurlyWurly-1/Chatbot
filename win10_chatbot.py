@@ -4,12 +4,17 @@ import speech_recognition as sr
 import pyttsx3
 import os
 import openai
+import re
+
 botName      = "Buddy"
 myName       = "Dracula"
 myAge        = "202"
 myBirthDate  = "1st April 1801" 
 myBirthPlace = "London"
 myLocation   = "Chester"
+
+    openai.api_key = "<PUT YOU API FROM OPENAI HERE>"
+
 
 def InfoTextSet (botName, myName, myAge, myBirthDate, myBirthPlace, myLocation):
     infoText = ""
@@ -29,7 +34,7 @@ def GPT_Completion(texts):
 ## Call the API key under your account (in a secure way)
     openai.api_key = "<PUT YOU API FROM OPENAI HERE>"
     response = openai.Completion.create(
-    engine="text-davinci-002",
+    engine="text-davinci-003",
     prompt =  texts,
     temperature = 0.9,
     top_p = 1,
@@ -82,7 +87,7 @@ while(1):
             r.adjust_for_ambient_noise(source)             
             # listens for the user's input
             print("Listening")
-            audio = r.listen(source, None, 15)
+            audio = r.listen(source, None, 8)
             print("Processing")             
 
         try:    
@@ -90,10 +95,18 @@ while(1):
             print("Q: "+myText)            
             myText = InfoTextSet(botName, myName, myAge, myBirthDate, myBirthPlace, myLocation) + myText
             gptText = GPT_Completion(myText)
-            print(gptText)   
+#            print(gptText)   
             try:
+
+# Remove special characters
+                gptText = re.sub(r"\W+|_", " ", gptText)
+
+# Remove first "?"
                 if (gptText[0] == '?') :
                     gptText = gptText[1:]
+                    gptText = gptText.strip()
+                    
+# Remove all other "?"
                 if ('?' in gptText) :
                     temp = gptText
                     zexit = False
@@ -103,24 +116,42 @@ while(1):
                         temp = temp[1:]
                     if temp != "":
                         gptText = temp
+#                   print(gptText)  
+#
                 if ('You:' in gptText) :
                     zexit = False
                     while zexit == False :
                         if (gptText[0] == ':') :
                             zexit = True
                         gptText = gptText[1:]
-                if (':' in gptText) :
+#                   print(gptText)   
+#
+                chkText = botName + ":"
+                if (chkText in gptText) :
                     zexit = False
                     while zexit == False :
                         if (gptText[0] == ':') :
                             zexit = True
                         gptText = gptText[1:]
+#                   print(gptText)   
+
+                gptText = gptText.strip()
+
+                try:  
+                    if (gptText[:len(botName)] == botName) :
+                        gptText = gptText[len(botName):]
+#                       print(gptText)   
+                except:
+                    pass
+
                 if ('http' in gptText) :
                     gptText = "Please refine your question"
+
             except:
                 if gptText != "": 
                     print("error - index out of range")    
-            
+
+            print(gptText)   
             SpeakText(gptText)
 
         except sr.UnknownValueError:    
