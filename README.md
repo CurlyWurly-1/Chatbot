@@ -8,11 +8,14 @@ GENERAL INFO - How to install on your laptop/desktop
  - There are 2 main python programs:
    - The "WIN10" version called "WIN10_chatbot.py" is self contained i.e. it doesn't call "speak.py".
    - The "Jetson Nano" version called "jetson_nano_chatbot.py" uses a separate program called "speak.py" for speech output
+   - The "Jetson AGX XAVIER" version called "chatbot_AGX_XAVIER.py" uses a separate program called "speak.py" for speech output and also increases the tempo of speech
  - To use theses programs, you will have to install the following modules (works on python3.10). In WIN10, execute the following in an elevated  "CMD Prompt" window (Run as Administrator). If executing in Jetson Nano, add SUDO before the commands 
    - pip3 install pyttsx3
    - pip3 install openai
    - pip3 install speechRecognition
    - pip3 install PyAudio
+   - sudo apt-get install sox
+   - sudo apt-get install libsox-fmt-all
  - The speech recognition part is using the "recognize_google" method. For more information on alternatives, refer to https://pypi.org/project/SpeechRecognition/. 
  - The chatbot engine is GPT-3. For more information, refer to https://openai.com/blog/openai-api/ 
  - The speech output part works without an internet connection. For more information, refer to https://pypi.org/project/pyttsx3/ 
