@@ -33,7 +33,7 @@ def say_hi_internet(name):
     except:
         pass
     myobj.save("welcome1.mp3")
-    os.system("play welcome1.mp3 tempo 1.3")   # If this doesn't work, comment out and use the playsound command as below
+    os.system("play welcome1.mp3 tempo 1.3 >/dev/null 2>&1")  # If this doesn't work, comment out and use the playsound command as below
 #    playsound("welcome1.mp3")
     os.remove("welcome1.mp3")
 
